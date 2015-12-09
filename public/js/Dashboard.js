@@ -168,7 +168,6 @@ console.log(maxDate);
 //        .ordering(function(d){return d.value;})
 //        .yAxis().tickFormat(d3.format("s"));
 //
-//
 //	totalRecords
 //	.formatNumber(d3.format("d"))
 //	.valueAccessor(function(d){return d; })
