@@ -28,7 +28,7 @@ module.exports = function(app) {
 		}});
 	 
 	 console.log('query database:');
-	 connection.query('SELECT * from daily_fraud_summary_report limit 100', function(err, rows, fields) {
+	 connection.query('SELECT * from daily_fraud_summary_report limit 1000', function(err, rows, fields) {
 	   if (!err){
 //	 	 console.log('The fileds: ', fields);
 	     console.log('The solution is: ', rows.length);

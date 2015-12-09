@@ -11,7 +11,7 @@ function makeGraphs(error, apiData) {
 	var dateFormat = d3.time.format("%Y-%m-%dT%H:%M:%S.%LZ"); //"2015-07-01T04:00:00.000Z"
 	dataSet.forEach(function(d) {
 		d. traffic_date = dateFormat.parse(d.traffic_date);
-				d. traffic_date.setDate(1);
+		d. traffic_date.setDate(1);
 		d.possible_loss = +d.possible_loss;
 	});
 
@@ -19,7 +19,7 @@ function makeGraphs(error, apiData) {
 	var ndx = crossfilter(dataSet);
 
 	//Define Dimensions
-	var datePosted = ndx.dimension(function(d) { return d.traffic_date; });
+	var trafficDate = ndx.dimension(function(d) { return d.traffic_date; });
 //	var gradeLevel = ndx.dimension(function(d) { return d.grade_level; });
 //	var resourceType = ndx.dimension(function(d) { return d.resource_type; });
 //	var fundingStatus = ndx.dimension(function(d) { return d.funding_status; });
@@ -32,7 +32,7 @@ function makeGraphs(error, apiData) {
 
 
 	//Calculate metrics
-	var projectsByDate = datePosted.group(); 
+	var projectsByDate = trafficDate.group(); 
 //	var projectsByGrade = gradeLevel.group(); 
 //	var projectsByResourceType = resourceType.group();
 //	var projectsByFundingStatus = fundingStatus.group();
@@ -60,8 +60,8 @@ function makeGraphs(error, apiData) {
 	var netTotalPossibleLoss = ndx.groupAll().reduceSum(function(d) {return d.possible_loss;});
 	
 	//Define threshold values for data
-	var minDate = datePosted.bottom(1)[0]. traffic_date;
-	var maxDate = datePosted.top(1)[0]. traffic_date;
+	var minDate = trafficDate.bottom(1)[0]. traffic_date;
+	var maxDate = trafficDate.top(1)[0]. traffic_date;
 
 console.log(minDate);
 console.log(maxDate);
@@ -107,7 +107,7 @@ console.log(maxDate);
 //		//.width(600)
 //		.height(220)
 //		.margins({top: 10, right: 50, bottom: 30, left: 50})
-//		.dimension(datePosted)
+//		.dimension(trafficDate)
 //		.group(projectsByDate)
 //		.renderArea(true)
 //		.transitionDuration(500)
@@ -179,6 +179,9 @@ console.log(maxDate);
 	.group(all);
 
 	dataTable
+	.width(960)
+	.height(800)
+	.dimension(trafficDate)
 	.size(20)
 	.columns([
 	    function(d) {
@@ -199,9 +202,13 @@ console.log(maxDate);
         }
     ])
     .sortBy(function(d) {
-        return d.traffic_date;
+        return d.trafficDate;
     })
-	.group(all);
+    .order(d3.ascending)
+//	.group(all)
+	.group(function(d) { return "Daily Fraud Summary Table"
+     })
+	;
 	
     dc.renderAll();
 
