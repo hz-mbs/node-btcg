@@ -15,12 +15,12 @@ var methodOverride = require('method-override');
 // configuration ===========================================
 	
 // config files
-var port = process.env.PORT || 8180; // set our port
+var port = process.env.PORT || 8280; // set our port
 var db = require('./config/db');
 
 // connect to our mongoDB database (commented out after you enter in your own credentials)
 //connectionsubject = mongoose.createConnection(db.urlSubjectViews);
-connectionsubject = mysql.createConnection(db.urlSubjectViews);
+//connectionsubject = mysql.createConnection(db.urlSubjectViews);
 
 
 
