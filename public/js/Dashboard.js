@@ -6,6 +6,10 @@ function makeGraphs(error, apiData) {
 	
 //Start Transformations
 	var dataSet = apiData;
+//	var dataSet;
+//	 jQuery.getJSON(apiData, function(dataSet){
+//		 console.log('dataSet.length:', dataSet.length);
+//	 });
 	console.log('makeGraphs():apiData:', apiData.length);
 	console.log('makeGraphs():dataSet:', dataSet.length);
 	var dateFormat = d3.time.format("%Y-%m-%dT%H:%M:%S.%LZ"); //"2015-07-01T04:00:00.000Z"
