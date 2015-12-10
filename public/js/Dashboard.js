@@ -184,22 +184,27 @@ console.log(maxDate);
 	.dimension(trafficDate)
 	.size(20)
 	.columns([
-	    function(d) {
-	              return d.id;
-	          },
-        function(d) {
-            return d.traffic_date;
-        },
-        function(d) {
-            return d.msisdn;
-        },
-
-        function(d) {
-            return d.possible_loss;
-        },
-        function(d) {
-            return d.illegal_odds_24_hours;
-        }
+	          'id',
+	          'traffic_date',
+	          'msisdn',
+	          'possible_loss',
+	          'illegal_odds_24_hours'
+//	    function(d) {
+//	              return d.id;
+//	          },
+//        function(d) {
+//            return d.traffic_date;
+//        },
+//        function(d) {
+//            return d.msisdn;
+//        },
+//
+//        function(d) {
+//            return d.possible_loss;
+//        },
+//        function(d) {
+//            return d.illegal_odds_24_hours;
+//        }
     ])
     .sortBy(function(d) {
         return d.trafficDate;

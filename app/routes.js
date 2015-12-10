@@ -2,7 +2,7 @@
 console.log('route.js');
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
-  host     : '10.214.3.16',
+  host     : '10.212.2.143',
   port		: '36053',
   user     : 'mwsadmin',
   password : 'ubi6La5z',
