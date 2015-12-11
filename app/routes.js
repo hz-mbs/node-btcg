@@ -68,7 +68,7 @@ module.exports = function(app) {
 		}});
 	 
 	 console.log('query database:');
-	 connection.query('SELECT * from daily_fraud_summary_report limit 1', function(err, rows, fields) {
+	 connection.query('SELECT * from daily_fraud_summary_report limit 100', function(err, rows, fields) {
 	   if (!err){
 	     console.log('The solution is: ', rows.length);
 	     console.log('The solution is: ', rows);
@@ -86,40 +86,38 @@ module.exports = function(app) {
 	   }
 	 });
 	 connection.end();	 
-	
-// app.get('/api/tcgdetections', function(req, res) {
-// 	 console.log('app.get(/api/tcgdetections:');
-//	 
-//	 var url = "http://10.212.2.53:8080/tcgdetections" ;
-//
-//	request({
-//	    url: url,
-//	    json: true
-//	}, function (error, response, body) {
-//
-//	    if (!error && response.statusCode === 200) {
-//	        console.log(body) // Print the json response
-//	        res.json(body);
-//	    }
-//	});
-	
-	 console.log('end function(req, res):');
-//	 return;
-	 // if there is an error retrieving, send the error. 
-       // nothing after res.send(err) will execute
-//   if (err) 
-//   res.send(err);
-//    res.json(subjectDetails); // return all nerds in JSON format
-//  });
+
  });
 
- 
+	
+app.get('/api/tcgdetections', function(req, res) {
+	 console.log('app.get(/api/tcgdetections:');
+	 
+	 var url = "http://10.212.2.53:8080/tcgdetections" ;
+
+	request({
+	    url: url,
+	    json: true
+	}, function (error, response, body) {
+
+	    if (!error && response.statusCode === 200) {
+	        console.log(body) // Print the json response
+	        res.json(body);
+	    }
+	    else {
+	   		 res.send(err);
+	    }
+	});
+	
+	 console.log('end /api/tcgdetections:');
+
+});
 
 
 
  // frontend routes =========================================================
  app.get('*', function(req, res) {
-//	 console.log('app.get(\'*\', function(req, res):');
+	 console.log('app.get(\'*\', function(req, res):');
   res.sendfile('./public/login.html');
  });
 }
