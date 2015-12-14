@@ -49,6 +49,7 @@ function makeGraphs(error, apiData) {
     //Then bind the jquery data table:
 	var datatable = $("#callsNodup-datatable").dataTable({
         "bPaginate": true,
+        "colReorder": true,
         "bLengthChange": true,
         "bFilter": true,
         "bSort": true,
