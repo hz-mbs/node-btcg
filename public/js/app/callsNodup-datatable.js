@@ -52,7 +52,7 @@ function makeGraphs(error, apiData) {
 //		"sDom": '<"top"i>rt<"bottom"flp><"clear">',
         "bPaginate": true,
         "colReorder": true,
-        "bLengthChange": false,
+        "bLengthChange": true,
         "bFilter": true,
         "bSort": true,
         "bInfo": true,
@@ -108,7 +108,7 @@ function makeGraphs(error, apiData) {
 //      } ]    
 	
 //        , dom: 'lfrtip'
-        , buttons: [
+/*        , buttons: [
 				  {
                       extend: 'collection',
                       text: 'Export',
@@ -120,10 +120,12 @@ function makeGraphs(error, apiData) {
                       ]
                   }
               ]
-/*        buttons: [
+*/
+	       , buttons: [
                  'copy', 'excel', 'pdf'
              ]
-*/	});	
+	
+	});	
 	
 	
     dc.renderAll();
