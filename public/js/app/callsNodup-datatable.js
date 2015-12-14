@@ -48,9 +48,11 @@ function makeGraphs(error, apiData) {
 
     //Then bind the jquery data table:
 	var datatable = $("#callsNodup-datatable").dataTable({
+//		"dom": '<"top"i>rt<"bottom"flp><"clear">',
+//		"sDom": '<"top"i>rt<"bottom"flp><"clear">',
         "bPaginate": true,
         "colReorder": true,
-        "bLengthChange": true,
+        "bLengthChange": false,
         "bFilter": true,
         "bSort": true,
         "bInfo": true,
@@ -88,7 +90,7 @@ function makeGraphs(error, apiData) {
             { "mData": "call_id", "sDefaultContent": ""},
 */           
 
-        ],
+        ]
     
 //        "columnDefs": [ {
 //            "targets": [ 0 ],
@@ -104,8 +106,9 @@ function makeGraphs(error, apiData) {
 //        "visible": true,
 //        "searchable": true
 //      } ]    
-        dom: 'Bfrtip',
-        buttons: [
+	
+//        , dom: 'lfrtip'
+        , buttons: [
 				  {
                       extend: 'collection',
                       text: 'Export',
