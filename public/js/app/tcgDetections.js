@@ -215,7 +215,7 @@ console.log(maxDate);
     })
     .order(d3.ascending)
 //	.group(all)
-	.group(function(d) { return "TCG Detections"
+	.group(function(d) { return "Calls Nodup"
      })
 	;
 	
