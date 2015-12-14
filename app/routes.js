@@ -94,6 +94,7 @@ app.get('/api/tcgdetections', function(req, res) {
 	 console.log('app.get(/api/tcgdetections:');
 	 
 	 var url = "http://10.212.2.53:8080/tcgdetections" ;
+	 //"http://10.250.10.54:8081/listcallsnodup" Nirangan's 
 
 	request({
 	    url: url,
@@ -113,6 +114,30 @@ app.get('/api/tcgdetections', function(req, res) {
 
 });
 
+
+app.get('/api/listcallsnodup', function(req, res) {
+	 console.log('app.get(/api/listcallsnodup:');
+	 
+	 var url = "http://localhost:8081/listcallsnodup" ;
+	 //"http://10.250.10.54:8081/listcallsnodup" Nirangan's 
+
+	request({
+	    url: url,
+	    json: true
+	}, function (error, response, body) {
+
+	    if (!error && response.statusCode === 200) {
+	        console.log(body) // Print the json response
+	        res.json(body);
+	    }
+	    else {
+	   		 res.send(error);
+	    }
+	});
+	
+	 console.log('end /api/listcallsnodup:');
+
+});
 
 
  // frontend routes =========================================================
