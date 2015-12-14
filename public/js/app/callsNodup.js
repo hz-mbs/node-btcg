@@ -21,8 +21,6 @@ function makeGraphs(error, apiData) {
 	//Define Dimensions
 	var call_date = ndx.dimension(function(d) { return d.call_date; });
 
-//	var totalprocessedTime  = ndx.dimension(function(d) { return d.processedTime; });
-
 
 
 	//Calculate metrics

@@ -118,8 +118,8 @@ app.get('/api/tcgdetections', function(req, res) {
 app.get('/api/listcallsnodup', function(req, res) {
 	 console.log('app.get(/api/listcallsnodup:');
 	 
-	 var url = "http://localhost:8081/listcallsnodup" ;
-	 //"http://10.250.10.54:8081/listcallsnodup" Nirangan's 
+	 var url = "http://localhost:8380/listcallsnodup" ;
+	 //"http://10.250.10.54:8081/listcallsnodup" Niranjan's 
 
 	request({
 	    url: url,
@@ -127,7 +127,8 @@ app.get('/api/listcallsnodup', function(req, res) {
 	}, function (error, response, body) {
 
 	    if (!error && response.statusCode === 200) {
-	        console.log(body) // Print the json response
+//	        console.log(body) // Print the json response
+	    	console.log("returned json nodes:", body.length);
 	        res.json(body);
 	    }
 	    else {
