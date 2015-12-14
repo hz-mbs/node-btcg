@@ -40,8 +40,8 @@ function makeGraphs(error, apiData) {
 //	var netTotalprocessedTime = ndx.groupAll().reduceSum(function(d) {return d.processedTime;});
 	
 	//Define threshold values for data
-	var minDate = callDate.bottom(1)[0]. callDate;
-	var maxDate = callDate.top(1)[0]. callDate;
+	var minDate = callDate.bottom(1)[0]. call_date;
+	var maxDate = callDate.top(1)[0]. call_date;
 
 	console.log(minDate);
 	console.log(maxDate);
@@ -87,7 +87,7 @@ function makeGraphs(error, apiData) {
             { "mData": "call_id", "sDefaultContent": ""},
 */           
 
-        ]
+        ],
     
 //        "columnDefs": [ {
 //            "targets": [ 0 ],
@@ -103,7 +103,23 @@ function makeGraphs(error, apiData) {
 //        "visible": true,
 //        "searchable": true
 //      } ]    
-	});	
+        dom: 'Bfrtip',
+        buttons: [
+				  {
+                      extend: 'collection',
+                      text: 'Export',
+                      buttons: [
+                          'copy',
+                          'excel',
+                          'csv',
+                          'pdf'
+                      ]
+                  }
+              ]
+/*        buttons: [
+                 'copy', 'excel', 'pdf'
+             ]
+*/	});	
 	
 	
     dc.renderAll();
